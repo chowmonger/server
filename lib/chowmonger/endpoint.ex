@@ -35,5 +35,6 @@ defmodule Chowmonger.Endpoint do
     key: "_chowmonger_key",
     signing_salt: "dabQbB6M"
 
+  plug CORSPlug, origin: ["https://www.chowmonger.com", "http://localhost:4200", "https://chowmonger-client.herokuapp.com", "https://chowmonger.herokuapp.com"]
   plug Chowmonger.Router
 end

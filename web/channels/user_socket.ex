@@ -2,10 +2,11 @@ defmodule Chowmonger.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "rooms:*", Chowmonger.RoomChannel
+  channel "trucks", Chowmonger.API.V1.TruckChannel
 
-  ## Transports
-  transport :websocket, Phoenix.Transports.WebSocket
+  ## Transports / timeout is for heroku
+  transport :websocket, Phoenix.Transports.WebSocket,
+    timeout: 20_000, check_origin: false
   # transport :longpoll, Phoenix.Transports.LongPoll
 
   # Socket params are passed from the client and can

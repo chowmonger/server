@@ -8,7 +8,6 @@ use Mix.Config
 # Configures the endpoint
 config :chowmonger, Chowmonger.Endpoint,
   url: [host: "localhost"],
-  root: Path.dirname(__DIR__),
   secret_key_base: "fYt9YraIT1wE7oeDRcnW9CJaAYsu2h3NXqK1cZIfFOgH3egClNdP27LTS92le+nS",
   render_errors: [accepts: ~w(html json)],
   pubsub: [name: Chowmonger.PubSub,
@@ -27,3 +26,21 @@ import_config "#{Mix.env}.exs"
 config :phoenix, :generators,
   migration: true,
   binary_id: false
+
+# JSONAPI.org config
+config :phoenix, :format_encoders,
+  "json-api": Poison
+
+config :plug, :mimes, %{
+  "application/vnd.api+json" => ["json-api"]
+}
+
+config :chowmonger, ecto_repos: [Chowmonger.Repo]
+
+# Configure Guardian
+config :guardian, Guardian,
+  issuer: "Chowmonger",
+  ttl: { 30, :days },
+  verify_issuer: true,
+  secret_key: to_string(Mix.env),
+  serializer: Chowmonger.GuardianSerializer

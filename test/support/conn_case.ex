@@ -27,16 +27,20 @@ defmodule Chowmonger.ConnCase do
 
       import Chowmonger.Router.Helpers
 
+      import Chowmonger.TestHelpers
+
       # The default endpoint for testing
       @endpoint Chowmonger.Endpoint
     end
   end
 
   setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Chowmonger.Repo)
+
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Chowmonger.Repo, [])
+      Ecto.Adapters.SQL.Sandbox.mode(Chowmonger.Repo, {:shared, self()})
     end
 
-    {:ok, conn: Phoenix.ConnTest.conn()}
+    {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end
