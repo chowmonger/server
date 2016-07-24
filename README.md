@@ -1,8 +1,10 @@
-# Chowmonger
+# Chowmonger (Phoenix API)
 
-[![Build Status](https://travis-ci.org/Chowmonger/api.svg?branch=master)](https://travis-ci.org/Chowmonger/api)
+[![Build Status](https://travis-ci.org/chowmonger/server.svg?branch=master)](https://travis-ci.org/chowmonger/server)
 
-Chowmonger is an open-source platform for Food Trucks.
+Chowmonger is an open-source platform for finding real time information about
+food trucks. Its existence is mainly as a learning tool for both EmberJS and
+Phoenix.
 
 # Getting Started
 
