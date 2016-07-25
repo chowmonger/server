@@ -46,10 +46,11 @@ defmodule Chowmonger.Mixfile do
      {:comeonin, "~> 2.1.0"},
      {:cors_plug, "~> 1.1.1"},
      {:guardian, "~> 0.10.0"},
+     {:credo, "~> 0.4", only: [:dev, :test]},
+     {:httpotion, "~> 3.0.0"},
      {:json_api_assert, github: "dockyard/json_api_assert", branch: "master", only: :test},
      {:httpotion, "~> 3.0.0"},
-     {:excoveralls, "~> 0.5", only: :test},
-     {:credo, "~> 0.4", only: [:dev, :test]}
+     {:excoveralls, "~> 0.5", only: :test}
     ]
   end
 
