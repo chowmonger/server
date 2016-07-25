@@ -11,3 +11,4 @@ addons:
 before_script:
 # Create the test database
 - psql -c 'create database chowmonger_test;' -U postgres
+script: mix coveralls.travis
