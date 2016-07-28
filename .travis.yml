@@ -5,6 +5,8 @@ cache:
   directories:
     - _build
     - deps
+env:
+- MIX_ENV=test
 sudo: false
 addons:
   postgresql: '9.4' # Use postgres 9.4
