@@ -46,6 +46,7 @@ defmodule Chowmonger.Mixfile do
      {:cors_plug, "~> 1.1.1"},
      {:guardian, "~> 0.10.0"},
      {:json_api_assert, github: "dockyard/json_api_assert"},
+     {:credo, "~> 0.4", only: [:dev, :test]},
      {:httpotion, "~> 3.0.0"}
     ]
   end
