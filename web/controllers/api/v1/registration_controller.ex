@@ -15,7 +15,7 @@ defmodule Chowmonger.API.V1.RegistrationController do
 
         conn
         |> put_status(:created)
-        |> render("show.json", data: user)
+        |> render("show.json-api", data: user)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)

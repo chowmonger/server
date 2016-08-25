@@ -11,7 +11,7 @@ defmodule Chowmonger.API.V1.TokenController do
 
   def show(conn, _params) do
     user = Guardian.Plug.current_resource(conn)
-    render(conn, "show.json", data: user)
+    render(conn, "show.json-api", data: user)
   end
 
   def create(conn, %{"data" => %{"attributes" => token_params }}) do
@@ -22,7 +22,7 @@ defmodule Chowmonger.API.V1.TokenController do
 
         conn
         |> put_status(:created)
-        |> render("show.json", data: user)
+        |> render("show.json-api", data: user)
       :error ->
         conn
         |> put_status(:unprocessable_entity)

@@ -8,7 +8,7 @@ defmodule Chowmonger.API.V1.UserController do
     user = Guardian.Plug.current_resource(conn)
 
     conn
-    |> render(:show, data: user)
+    |> render("show.json-api", data: user)
   end
 
   def show(conn, _) do
@@ -19,11 +19,11 @@ defmodule Chowmonger.API.V1.UserController do
 
         conn
         |> put_status(:ok)
-        |> render("show.json", data: user)
+        |> render("show.json-api", data: user)
       {:error, _reason} ->
         conn
         |> put_status(:not_found)
-        |> render("errors.json", data: "Not found")
+        |> render(:errors, data: "Not found")
     end
   end
 
@@ -38,7 +38,7 @@ defmodule Chowmonger.API.V1.UserController do
 
         conn
         |> put_status(:ok)
-        |> render("show.json", data: user)
+        |> render("show.json-api", data: user)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
