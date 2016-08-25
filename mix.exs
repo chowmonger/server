@@ -49,7 +49,7 @@ defmodule Chowmonger.Mixfile do
      {:json_api_assert, github: "dockyard/json_api_assert", branch: "master", only: :test},
      {:httpotion, "~> 3.0.0"},
      {:excoveralls, "~> 0.5", only: :test},
-     {:credo, "~> 0.4", only: [:dev, :test]},
+     {:credo, "~> 0.4", only: [:dev, :test]}
     ]
   end
 
