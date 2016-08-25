@@ -4,7 +4,7 @@ defmodule Chowmonger.Mixfile do
   def project do
     [app: :chowmonger,
      version: "0.0.1",
-     elixir: "~> 1.2.6",
+     elixir: "~> 1.3.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -45,7 +45,7 @@ defmodule Chowmonger.Mixfile do
      {:comeonin, "~> 2.1.0"},
      {:cors_plug, "~> 1.1.1"},
      {:guardian, "~> 0.10.0"},
-     {:json_api_assert, github: "dockyard/json_api_assert"},
+     {:json_api_assert, github: "dockyard/json_api_assert", only: [:dev, :test]},
      {:credo, "~> 0.4", only: [:dev, :test]},
      {:httpotion, "~> 3.0.0"}
     ]

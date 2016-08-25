@@ -26,7 +26,7 @@ defmodule Chowmonger.API.V1.User do
     |> cast(params, @required_fields, @optional_fields)
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 8)
-    |> validate_length(:name, min: 1)
+    |> validate_required(:name)
     |> validate_confirmation(:password, message: "Incorrect password")
     |> unique_constraint(:email, message: "in use")
     |> encrypt_password()
