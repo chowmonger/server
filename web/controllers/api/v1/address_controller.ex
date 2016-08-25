@@ -16,6 +16,6 @@ defmodule Chowmonger.API.V1.AddressController do
       |> List.first
       |> Map.fetch("formatted_address")
 
-    render(conn, "show.json", data: %{address: address})
+    render(conn, "show.json-api", data: %{address: address})
   end
 end
