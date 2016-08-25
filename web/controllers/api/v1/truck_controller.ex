@@ -19,12 +19,12 @@ defmodule Chowmonger.API.V1.TruckController do
           |> Repo.preload(:menu_items)
       end
 
-    render(conn, "index.json", data: trucks)
+    render(conn, "index.json-api", data: trucks)
   end
 
   def show(conn, %{"id" => id}) do
     truck = Repo.get!(Truck, id) |> Repo.preload(:menu_items)
-    render(conn, "show.json", data: truck)
+    render(conn, "show.json-api", data: truck)
   end
 
   def update(conn, %{"data" => %{"attributes" => truck_params}, "id" => id}) do
@@ -35,7 +35,7 @@ defmodule Chowmonger.API.V1.TruckController do
     case Repo.update(changeset) do
       {:ok, truck} ->
         Chowmonger.Endpoint.broadcast_from! self(), "trucks", "change", %{"id" => id}
-        render(conn, "show.json", data: truck |> Repo.preload(:menu_items))
+        render(conn, "show.json-api", data: truck |> Repo.preload(:menu_items))
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
