@@ -10,6 +10,7 @@ defmodule Chowmonger.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases,
+     test_coverage: [tool: ExCoveralls],
      deps: deps]
   end
 
@@ -45,9 +46,12 @@ defmodule Chowmonger.Mixfile do
      {:comeonin, "~> 2.1.0"},
      {:cors_plug, "~> 1.1.1"},
      {:guardian, "~> 0.10.0"},
-     {:json_api_assert, github: "dockyard/json_api_assert", only: [:dev, :test]},
+     {:httpotion, "~> 3.0.0"},
+     {:json_api_assert, github: "dockyard/json_api_assert", branch: "master", only: :test},
+     {:httpotion, "~> 3.0.0"},
+     {:mr_t, "~> 0.6.0", only: [:test, :dev]},
      {:credo, "~> 0.4", only: [:dev, :test]},
-     {:httpotion, "~> 3.0.0"}
+     {:excoveralls, "~> 0.5", only: :test}
     ]
   end
 
